@@ -1,7 +1,7 @@
-import { component$, $,useTask$, useSignal, useStore} from "@builder.io/qwik";
+import { component$, $,useTask$, useSignal} from "@builder.io/qwik";
 import { Link } from "astro:db"
 import { db } from "astro:db"
-import { isServer } from '@builder.io/qwik/build';
+
 
 
 
@@ -15,9 +15,7 @@ export const Main = component$(()=>{
      useTask$(({track})=>{
       const linkers = track(()=>links)
       const update = ()=>(store.value = linkers)
-      isServer
-        ? update() 
-        : delay(500).then(update);
+    
     })
 
     
